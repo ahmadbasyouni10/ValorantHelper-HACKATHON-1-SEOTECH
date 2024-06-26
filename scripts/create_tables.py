@@ -50,8 +50,7 @@ def create_tables():
             contentTierUuid TEXT,
             displayIcon VARCHAR(255),
             wallpaper VARCHAR(255),
-            assetPath VARCHAR(255),
-            FOREIGN KEY (weapon_uuid) REFERENCES weapons (uuid)
+            assetPath VARCHAR(255)
         )
     ''')
 
