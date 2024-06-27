@@ -2,6 +2,7 @@
 import unittest
 import sqlite3
 import create_tables, populate_tables
+
 import os
 
 class TestTables(unittest.TestCase):
@@ -51,7 +52,7 @@ class TestTables(unittest.TestCase):
         sql_query = '''SELECT displayName FROM weapon_wraps WHERE displayName='Sakura Sheriff';'''
         self.cur.execute(sql_query)
         self.assertEqual(1, len(self.cur.fetchall()))
-        
+
     # FrontEnd testing of the chart and dashboard
 
 
