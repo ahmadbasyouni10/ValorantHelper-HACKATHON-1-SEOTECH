@@ -38,7 +38,8 @@ def create_tables():
             displayIcon VARCHAR(255),
             splash VARCHAR(255),
             coordinates TEXT,
-            callouts TEXT
+            callouts TEXT,
+            sites TEXT
         )
     ''')
 
@@ -50,6 +51,18 @@ def create_tables():
             contentTierUuid TEXT,
             displayIcon VARCHAR(255),
             wallpaper VARCHAR(255),
+            assetPath VARCHAR(255)
+        )
+    ''')
+    
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS seasons (
+            uuid VARCHAR(36) PRIMARY KEY,
+            displayName VARCHAR(255),
+            type VARCHAR(50),
+            startTime DATETIME,
+            endTime DATETIME,
+            parentUuid VARCHAR(36),
             assetPath VARCHAR(255)
         )
     ''')
