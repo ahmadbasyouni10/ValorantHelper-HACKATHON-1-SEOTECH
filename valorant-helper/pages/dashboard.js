@@ -134,7 +134,7 @@ export default function dashboard() {
                 >
                     Welcome!</Heading>
                 <Text color="gray" fontSize="md">Tiers</Text>
-                <Text fontWeight="bold" color="black" fontSize="2xl">10</Text>
+                <Text fontWeight="bold" color="#D53F8C" fontSize="2xl">10</Text>
                 <MyChart />
                 <Flex justifyContent="space-between" mt={8}>
                     <Flex align="flex-end">

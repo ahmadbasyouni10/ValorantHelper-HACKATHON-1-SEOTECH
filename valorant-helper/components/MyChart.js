@@ -52,8 +52,8 @@ const LineChart = () => {
           datasets: [{
             label: 'Competitive Tiers',
             data: data,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: '#D53F8C',
+            borderColor: '#D53F8C',
             borderWidth: 1,
           }]
         },
