@@ -2,17 +2,19 @@
 import unittest
 import sqlite3
 import create_tables, populate_tables
+
 import os
 
-# BackEnd Testing for the SQL dataBase
 class TestTables(unittest.TestCase):
+    # BackEnd Testing for the SQL dataBase
     # Valorant API fetches from Populate Tables
+    # Test Case to ensure they are working
     def test_fetch(self):
         self.assertIsNotNone(populate_tables.fetch_agents_from_api())
         self.assertIsNotNone(populate_tables.fetch_competitive_tiers_from_api())
         self.assertIsNotNone(populate_tables.fetch_maps_from_api())
         self.assertIsNotNone(populate_tables.fetch_weapon_wraps_from_api())
-    
+
     # Table Population from Populate Tables and Create Tables
     def test_create_tables(self):
         # Testing to see if 4 tables were created in the database
@@ -34,7 +36,7 @@ class TestTables(unittest.TestCase):
         sql_query = '''SELECT tierName FROM competitive_tiers WHERE tierName='UNRANKED';'''
         self.cur.execute(sql_query)
         # Valorant has 9 ranks, with each having 3 subtiers
-        # that said, populate_tables creates adds more data to 
+        # that said, populate_tables creates adds more data to
         # the tierName table than necessary;
         # ranks get repeated so something to investigate 
         print(len(self.cur.fetchall()))
@@ -44,11 +46,14 @@ class TestTables(unittest.TestCase):
         self.cur.execute(sql_query)
         # Valorant has 16 maps
         self.assertEqual(16, len(self.cur.fetchall()))
-
+        
+        # Valorant has many skins in the game, so 
+        # this test is to see that skins were added to the table
         sql_query = '''SELECT displayName FROM weapon_wraps WHERE displayName='Sakura Sheriff';'''
         self.cur.execute(sql_query)
         self.assertEqual(1, len(self.cur.fetchall()))
 
+    # FrontEnd testing of the chart and dashboard
 
         
 if __name__ == '__main__':
