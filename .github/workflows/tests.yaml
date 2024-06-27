@@ -33,5 +33,3 @@ jobs:
         with:
             name: code-coverage-report
             path: htmlcov
-
-            python -m pip install --upgrade pip pytest
