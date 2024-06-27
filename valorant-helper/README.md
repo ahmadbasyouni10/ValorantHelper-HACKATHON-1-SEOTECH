@@ -6,6 +6,8 @@ ValorantHelper is an AI ChatBot to provide information for both casual and profe
 
 ## Getting Started
 
+Reminder: Make sure to have the necessary installations to run this program (ex: Flask)!
+
 First, run the development server:
 
 ```bash
