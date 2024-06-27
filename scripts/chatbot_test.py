@@ -7,16 +7,10 @@ import os
 # BackEnd Testing for the SQL dataBase
 class TestTables(unittest.TestCase):
     # Valorant API fetches from Populate Tables
-    def test_fetch_agents(self):
+    def test_fetch(self):
         self.assertIsNotNone(populate_tables.fetch_agents_from_api())
-
-    def test_fetch_tiers(self):
         self.assertIsNotNone(populate_tables.fetch_competitive_tiers_from_api())
-
-    def test_fetch_maps(self):
         self.assertIsNotNone(populate_tables.fetch_maps_from_api())
-
-    def test_fetch_(self):
         self.assertIsNotNone(populate_tables.fetch_weapon_wraps_from_api())
     
     # Table Population from Populate Tables and Create Tables
