@@ -2,7 +2,7 @@ import sqlite3
 import os
 
 def create_tables():
-    conn = sqlite3.connect('valorant_bot.db')
+    conn = sqlite3.connect('valorant_bot.db') # 'data/valorant_bot.db' changed to 'valorant_bot.db'
     c = conn.cursor()
 
     # Create tables

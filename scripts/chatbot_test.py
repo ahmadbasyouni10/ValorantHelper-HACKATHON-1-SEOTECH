@@ -32,7 +32,22 @@ class TestTables(unittest.TestCase):
         print(self.cur.fetchall())
 
         # Testing to see if data was put into database
-        
+        populate_tables.main()
+        sql_query = '''SELECT * FROM agents'''
+        self.cur.execute(sql_query)
+        print(self.cur.fetchone())
+
+        sql_query = '''SELECT * FROM competitive_tiers'''
+        self.cur.execute(sql_query)
+        print(self.cur.fetchone())
+
+        sql_query = '''SELECT * FROM maps'''
+        self.cur.execute(sql_query)
+        print(self.cur.fetchone())
+
+        sql_query = '''SELECT * FROM weapon_wraps'''
+        self.cur.execute(sql_query)
+        print(self.cur.fetchone())
 
     # ChatGPT 
     # def test_Create_Tables():

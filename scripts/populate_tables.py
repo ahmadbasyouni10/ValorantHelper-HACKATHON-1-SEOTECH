@@ -177,7 +177,7 @@ def populate_weapon_wraps(conn, cursor):
     
 def main():
     # Connect to SQLite database (or create it if it doesn't exist)
-    conn = sqlite3.connect('data/valorant_bot.db')
+    conn = sqlite3.connect('valorant_bot.db') # 'data/valorant_bot.db' changed to 'valorant_bot.db'
     c = conn.cursor()
     fetch_agents_from_api()
     populate_agents(conn, c)
