@@ -22,3 +22,9 @@ def deploy_chatgpt():
         ]
     )
     print(completion.choices[0].message.content) 
+
+def main():
+    deploy_chatgpt()
+
+if __name__ == "__main__":
+    main()
