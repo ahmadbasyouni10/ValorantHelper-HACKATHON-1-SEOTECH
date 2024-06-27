@@ -1,26 +1,13 @@
-import os 
 import openai
-# from scripts import chatgpt_key
-from openai import OpenAI
+import os
 
-def deploy_chatgpt():
-    # chatgpt_key.set_key()
-    my_api_key = os.getenv('OPENAI_API_KEY')
-    openai.api_key = my_api_key
-    print("Hello")
-    print(my_api_key)
-
-    # Create an OpenAPI client using the key from our environment variable
-    client = OpenAI(
-        api_key=my_api_key,
-    )
-
-    # Specify the model to use and the messages to send
-    completion = client.chat.completions.create(
+def deploy_chatgpt(user_message):
+    openai.api_key = os.getenv('OPENAI_API_KEY')
+    response= openai.ChatCompletions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a veteran player in Valorant who can explain Valorant concepts to new players in a casual and friendly manner."},
-            {"role": "user", "content": "What strategy is best for Heaven?"}
+            {"role": "user", "content": user_message}
         ]
     )
-    print(completion.choices[0].message.content) 
+    return response.choices[0].message['content']
