@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ValorantHelper Documentation
+
+## Description
+
+ValorantHelper is an AI ChatBot to provide information for both casual and professional players of Valorant. The backend is supported by the [OpenAI API's](https://platform.openai.com/docs/overview) GPT 3.5 Trubo model to provide dynamic responses alongside data pulled from the [Valorant API](https://valorant-api.com/) for the SQLITE3 databases. Frontend wise, this is a [Flask](https://flask.palletsprojects.com/en/3.0.x/) and [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) along with [Chakra UI](https://v2.chakra-ui.com/) for extra utility for the UI components. 
 
 ## Getting Started
 
@@ -26,10 +30,16 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about APIs and technologies used in this projct, take a look at the following resources:
 
+- [Chakra UI](https://v2.chakra-ui.com/getting-started) - getting started with ChakraUI
+- [Flask Documentation](https://flask.palletsprojects.com/en/3.0.x/) - documentation for Flask 3.0
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [OpenAI API](https://platform.openai.com/docs/api-reference/introduction) - OpenAI API reference page
+- [Python3](https://www.python.org/doc/) - learning resource from official Python documentation website
+- [SQLite3 Documentation](https://docs.python.org/3/library/sqlite3.html) - documentation for the latest version of SQLite3
+- [Valorant API Documentation](https://dash.valorant-api.com/) - learn Valorant API features
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
