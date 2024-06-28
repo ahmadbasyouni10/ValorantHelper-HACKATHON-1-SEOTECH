@@ -46,18 +46,23 @@ cd valorant-helper
 npm run dev
  ```
 
-Chakra UI - getting started with ChakraUI
-Flask Documentation - documentation for Flask 3.0
-Next.js Documentation - learn about Next.js features and API.
-Learn Next.js - an interactive Next.js tutorial.
-OpenAI API - OpenAI API reference page
-Python3 - learning resource from official Python documentation website
-SQLite3 Documentation - documentation for the latest version of SQLite3
-Valorant API Documentation - learn Valorant API features
-You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
+## Learn More
 
-Deploy on Vercel
-The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
+To learn more about APIs and technologies used in this projct, take a look at the following resources:
 
-Check out our Next.js deployment documentation for more details.
+- [Chakra UI](https://v2.chakra-ui.com/getting-started) - getting started with ChakraUI
+- [Flask Documentation](https://flask.palletsprojects.com/en/3.0.x/) - documentation for Flask 3.0
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [OpenAI API](https://platform.openai.com/docs/api-reference/introduction) - OpenAI API reference page
+- [Python3](https://www.python.org/doc/) - learning resource from official Python documentation website
+- [SQLite3 Documentation](https://docs.python.org/3/library/sqlite3.html) - documentation for the latest version of SQLite3
+- [Valorant API Documentation](https://dash.valorant-api.com/) - learn Valorant API features
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
