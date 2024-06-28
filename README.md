@@ -1,6 +1,9 @@
 # ValorantHelper
 Valorant Helper is a web app built with Next.js, Chakra UI, Flask, SQLite3, the Valorant API, Python, OpenAI, and Chart.js, designed to assist Valorant players with data insights and an intelligent chatbot. The frontend retrieves data from the backend and integrates an OpenAI-powered chatbot for user interactions.
 
+![image](https://github.com/ahmadbasyouni10/ValorantHelper/assets/120362910/8e99cfc1-1c78-41b2-a74a-ae6024d269be)
+
+
 ## Setup Instructions
 
 1. Clone the repository:
