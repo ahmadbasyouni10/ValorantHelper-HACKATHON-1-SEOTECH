@@ -1,10 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from chatbot_api import get_openai_response
 import sqlite3
 from flask_cors import CORS
 
-
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 @app.route('/')
 def index():
@@ -46,7 +46,12 @@ def get_maps():
     conn.close()
     return jsonify(maps)
 
-# Add more routes for maps, weapon wraps, seasons, etc.
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    user_message = request.json['message']
+    response = get_openai_response(user_message)
+    return jsonify({'response': response})
 
+# Add more routes for maps, weapon wraps, seasons, etc.
 if __name__ == '__main__':
     app.run(debug=True)  # Run Flask in debug mode for development
