@@ -3,7 +3,7 @@ import sqlite3
 import os
 from unittest.mock import patch
 from scripts import create_tables, populate_tables
-from main import get_openai_response
+from chatbot_api import get_openai_response
 from flask import Flask, jsonify, json
 import requests
 
