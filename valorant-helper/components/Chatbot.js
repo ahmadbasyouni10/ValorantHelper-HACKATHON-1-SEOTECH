@@ -8,6 +8,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
+import e from 'cors';
 
 const Message = ({ text, actor }) => {
   return (
@@ -40,24 +41,30 @@ const ChatApp = () => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (inputValue.trim() === '') return; // Don't send empty messages
 
     const newUserMessage = { text: inputValue, actor: 'user' };
-    const newBotMessage = { text: 'Loading...', actor: 'bot' }; // Placeholder for bot response
-
-    setMessages((prevMessages) => [...prevMessages, newUserMessage, newBotMessage]);
+    setMessages((prevMessages) => [...prevMessages, newUserMessage]);
     setInputValue(''); // Clear input after sending
 
-    // Simulate response delay (replace with actual API call for ChatGPT)
-    setTimeout(() => {
-      const botResponse = { text: 'Bot response here', actor: 'bot' }; // Replace with actual response from ChatGPT
-      setMessages((prevMessages) => {
-        const updatedMessages = [...prevMessages];
-        updatedMessages[prevMessages.length - 1] = botResponse; // Replace placeholder with actual bot response
-        return updatedMessages;
-      });
-    }, 1000); // Simulated response delay in milliseconds
+    // Call Flask endpoint for chatbot response
+    const response = await fetch('http://localhost:5000/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: inputValue }),
+        });
+
+    if (response.ok) {
+        const data = await response.json();
+        const botResponse = { text: data.response, actor: 'bot' };
+        setMessages((prevMessages) => [...prevMessages, botResponse]);
+    }
+    else {
+        console.error('Failed to fetch chatbot response:', response.status);
+    }                                                                                                        
   };
 
   const handleInputChange = (e) => {
