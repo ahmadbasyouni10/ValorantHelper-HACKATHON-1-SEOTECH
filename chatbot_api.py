@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI()
 
+
 def get_openai_response(user_message):
     OpenAI.api_key = os.getenv('OPENAI_API_KEY')
     response = client.completions.create(

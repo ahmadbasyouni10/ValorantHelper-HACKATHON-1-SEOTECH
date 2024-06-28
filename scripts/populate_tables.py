@@ -3,6 +3,8 @@ import requests
 import json
 
 # Function to fetch data from Valorant API
+
+
 def fetch_agents_from_api():
     url = 'https://valorant-api.com/v1/agents'
     headers = {
@@ -16,6 +18,8 @@ def fetch_agents_from_api():
         return None
 
 # Function to insert agents data into agents table
+
+
 def populate_agents(conn, cursor):
     cursor.execute('DELETE FROM agents')  # Clear existing data
     conn.commit()
@@ -35,10 +39,12 @@ def populate_agents(conn, cursor):
                         agent['description'],
                         agent.get('developerName', ''),
                         agent['displayIcon'],
-                        agent.get('role', {}).get('uuid') if agent.get('role') is not None else None,  # Adjusted line
+                        agent.get('role', {}).get('uuid') if agent.get(
+                            'role') is not None else None,  # Adjusted line
                         agent.get('isPlayableCharacter', False),
                         agent.get('isBaseContent', False),
-                        json.dumps(agent.get('abilities', []))  # Convert abilities to JSON
+                        # Convert abilities to JSON
+                        json.dumps(agent.get('abilities', []))
                     ))
                 except sqlite3.Error as e:
                     print('Error inserting agent data:', e)
@@ -46,6 +52,7 @@ def populate_agents(conn, cursor):
         print('Agents data populated successfully')
     else:
         print('Failed to fetch agents data from API')
+
 
 def fetch_competitive_tiers_from_api():
     url = 'https://valorant-api.com/v1/competitivetiers'
@@ -58,6 +65,7 @@ def fetch_competitive_tiers_from_api():
     else:
         print('Failed to fetch competitive tiers data from API')
         return None
+
 
 def populate_competitive_tiers(conn, cursor):
     cursor.execute('DELETE FROM competitive_tiers')  # Clear existing data
@@ -92,6 +100,7 @@ def populate_competitive_tiers(conn, cursor):
     else:
         print('Failed to fetch competitive tiers data from API')
 
+
 def fetch_maps_from_api():
     url = 'https://valorant-api.com/v1/maps'
     headers = {
@@ -106,8 +115,8 @@ def fetch_maps_from_api():
 
 
 def populate_maps(conn, cursor):
-    # Clear existing data 
-    cursor.execute('DELETE FROM maps')  
+    # Clear existing data
+    cursor.execute('DELETE FROM maps')
     conn.commit()
 
     maps_data = fetch_maps_from_api()
@@ -116,7 +125,8 @@ def populate_maps(conn, cursor):
             if map_item is not None:
                 try:
                     callouts = map_item.get('callouts')
-                    callouts_json = json.dumps([callout['regionName'] for callout in callouts] if callouts else [])
+                    callouts_json = json.dumps(
+                        [callout['regionName'] for callout in callouts] if callouts else [])
                     # SQL injection safe query using ? placeholder
                     cursor.execute('''
                         INSERT INTO maps (uuid, displayName, displayIcon, splash, coordinates, callouts, sites)
@@ -137,6 +147,7 @@ def populate_maps(conn, cursor):
     else:
         print('Failed to fetch maps data from API')
 
+
 def fetch_weapon_wraps_from_api():
     url = 'https://valorant-api.com/v1/weapons/skins'
     headers = {
@@ -148,6 +159,7 @@ def fetch_weapon_wraps_from_api():
     else:
         print('Failed to fetch weapon wraps data from API')
         return None
+
 
 def populate_weapon_wraps(conn, cursor):
     cursor.execute('DELETE FROM weapon_wraps')  # Clear existing data
@@ -177,6 +189,7 @@ def populate_weapon_wraps(conn, cursor):
     else:
         print('Failed to fetch weapon wraps data from API')
 
+
 def fetch_seasons_from_api():
     url = 'https://valorant-api.com/v1/seasons'
     headers = {
@@ -188,6 +201,7 @@ def fetch_seasons_from_api():
     else:
         print('Failed to fetch seasons data from API')
         return None
+
 
 def populate_seasons(conn, cursor):
     cursor.execute('DELETE FROM seasons')  # Clear existing data
@@ -216,7 +230,8 @@ def populate_seasons(conn, cursor):
         print('Seasons data populated successfully')
     else:
         print('Failed to fetch seasons data from API')
-    
+
+
 def main():
     # Connect to SQLite database (or create it if it doesn't exist)
     conn = sqlite3.connect('data/valorant_bot.db')
@@ -232,6 +247,7 @@ def main():
     fetch_seasons_from_api()
     populate_seasons(conn, c)
     conn.close()
+
 
 if __name__ == "__main__":
     main()

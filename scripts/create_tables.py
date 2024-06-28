@@ -1,6 +1,7 @@
 import sqlite3
 import os
 
+
 def create_tables():
     conn = sqlite3.connect('data/valorant_bot.db')
     c = conn.cursor()
@@ -54,7 +55,7 @@ def create_tables():
             assetPath VARCHAR(255)
         )
     ''')
-    
+
     c.execute('''
         CREATE TABLE IF NOT EXISTS seasons (
             uuid VARCHAR(36) PRIMARY KEY,
@@ -71,11 +72,9 @@ def create_tables():
     conn.close()
     print('Tables created successfully')
 
+
 if __name__ == '__main__':
     create_tables()
-
-
-
 
 
 ''' 
