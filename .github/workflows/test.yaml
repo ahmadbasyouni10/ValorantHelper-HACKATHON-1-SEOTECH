@@ -20,6 +20,8 @@ jobs:
           pip install python-dotenv pytest coverage pytest-cov pytest-mock requests openai responses 
 
       - name: Test with unittest and coverage
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           coverage run -m unittest test.py
           coverage report -m
