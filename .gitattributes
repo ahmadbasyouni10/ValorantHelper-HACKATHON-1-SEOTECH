@@ -1,0 +1,2 @@
+# Ignore all JavaScript and TypeScript files in the pages directory
+valorant-helper/pages/*.js linguist-vendored
